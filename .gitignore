@@ -1,3 +1,6 @@
 __pycache__
 .vscode
 .envrc
+.venv
+README.md
+app.py
