@@ -79,7 +79,7 @@ async def create_transcript(transcript:CallTranscript=Body(...)):
   created_transcript=await transcript_collection.find_one(
     {"_id":new_transcript.inserted_id}
   )
-  await created_transcript
+  return created_transcript
 
 @app.get(
   "/transcripts/",
@@ -92,4 +92,4 @@ async def list_transcripts():
   List all the transcripts in the database.
   The response is unpaginated and limited to 100 results.
   """
-  await CallTranscriptCollection(transcripts=await transcript_collection.find().to_list(100))
+  return CallTranscriptCollection(transcripts=await transcript_collection.find().to_list(100))

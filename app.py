@@ -14,6 +14,7 @@ from bson import ObjectId
 import motor.motor_asyncio
 from pymongo import ReturnDocument
 
+print("Connection string for MongoDB", os.getenv("MONGODB_URL"))
 
 app = FastAPI(
     title="Student Course API",
