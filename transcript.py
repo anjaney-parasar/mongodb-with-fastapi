@@ -12,12 +12,19 @@ from typing_extensions import Annotated
 
 from bson import ObjectId
 import motor.motor_asyncio
+import certifi
 from pymongo import ReturnDocument
 
 
 app = FastAPI(title="Call Transcript Database",
               summary="API to retrieve call transcript data")
-client = motor.motor_asyncio.AsyncIOMotorClient(os.getenv("MONGODB_URL"))
+import ssl
+
+client = motor.motor_asyncio.AsyncIOMotorClient(
+    os.getenv("MONGODB_URL"),
+    tls=True,
+    tlsCAFile=certifi.where()
+)
 db = client.Transcripts
 transcript_collection = db.get_collection("Solution Advisor")
 

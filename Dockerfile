@@ -15,8 +15,6 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Keeps Python from buffering stdout and stderr to avoid situations where
 # the application crashes without emitting any logs due to buffering.
 ENV PYTHONUNBUFFERED=1
-ENV MONGODB_URL="mongodb+srv://parasaranjaney:GsOqHt4yQP00CulV@transcripts.sqqnc.mongodb.net/"
-
 
 WORKDIR /app
 
@@ -50,4 +48,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the application.
-CMD uvicorn  transcript:app --reload --port 8000 --host=0.0.0.0
+CMD uvicorn  transcript:app --reload --port=8000 --host=0.0.0.0
